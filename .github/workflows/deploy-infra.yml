@@ -1,0 +1,35 @@
+name: Deploy (Infra)
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    concurrency: deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v6
+        
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          
+      - uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: projects/396840844383/locations/global/workloadIdentityPools/github
+          service_account: pulumi-deploy-agent@geekshacking-infra.iam.gserviceaccount.com
+          
+      - uses: pulumi/actions@v6
+        env:
+          PULUMI_CONFIG_PASSPHRASE: "password"
+        with:
+          command: up
+          refresh: true
+          stack-name: production
+          cloud-url: gs://geekshacking-infra-pulumi
