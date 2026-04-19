@@ -27,7 +27,7 @@ jobs:
           
       - uses: pulumi/actions@v6
         env:
-          PULUMI_CONFIG_PASSPHRASE: "password"
+          PULUMI_CONFIG_PASSPHRASE: ""
         with:
           command: up
           refresh: true
