@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@pulumi/cloudflare':
+        specifier: ^6.14.0
+        version: 6.14.0(typescript@5.9.3)
       '@pulumi/pulumi':
         specifier: ^3.113.0
         version: 3.231.0(typescript@5.9.3)
@@ -243,6 +246,9 @@ packages:
 
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
+
+  '@pulumi/cloudflare@6.14.0':
+    resolution: {integrity: sha512-YKH9x7UsNg5iI92g9hVL893MzF8VS4W7nANFvr1TN99mQczPKNi0Z1abTBxyZ4DcB/JWi5zq+va7rJuKkuVr6Q==}
 
   '@pulumi/pulumi@3.231.0':
     resolution: {integrity: sha512-aAIMkMkbxjGRZ8ldvvm2BPd5JwmJ23QM/vS8iMNpxf8wSDJcIUqx6AtAw2TKTeXlRL4iUMh1xvrXf7APRUwnMg==}
@@ -1205,6 +1211,14 @@ snapshots:
   '@protobufjs/pool@1.1.0': {}
 
   '@protobufjs/utf8@1.1.0': {}
+
+  '@pulumi/cloudflare@6.14.0(typescript@5.9.3)':
+    dependencies:
+      '@pulumi/pulumi': 3.231.0(typescript@5.9.3)
+    transitivePeerDependencies:
+      - supports-color
+      - ts-node
+      - typescript
 
   '@pulumi/pulumi@3.231.0(typescript@5.9.3)':
     dependencies:
